@@ -1,0 +1,14 @@
+.btn{
+    background-color: blue;
+    color: white;
+    padding: 10px 15px;
+}
+.btnn{
+    margin: 10px;
+    float: right;
+}
+.header h1{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}

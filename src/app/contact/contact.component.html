@@ -1,0 +1,30 @@
+<div class="header">
+  <h1>Contact Details</h1>
+</div>
+<div class="btnn">
+    <a routerLink="/add"class="btn">Add New</a>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Id</th> -->
+        <th scope="col" >Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Operations</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let item of collection">
+      <!-- <th scope="row">{{item._id}}</th> -->
+       <th>{{item.name}}</th>
+       <th>{{item.phone}}</th>
+       <th ><i (click)="delete(item._id)" class="fa fa-trash" style="font-size:25px;color:red;"></i>
+        &nbsp; &nbsp; &nbsp;
+        <i routerLink="/update/{{item._id}}"  class="fa fa-edit" style="font-size:25px;color:blue;"></i>
+      </th>
+      
+       
+     </tr>
+    </tbody>
+  </table>

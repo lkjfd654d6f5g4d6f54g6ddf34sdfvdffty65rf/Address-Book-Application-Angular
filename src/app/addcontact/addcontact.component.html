@@ -1,0 +1,35 @@
+<div class="container  ">
+    <div class="row d-flex justify-content-around">
+        <div class="col-md-6">
+            <h1 *ngIf="adding" style="font-weight: bold;text-align: center;" class="mt-5">Add Contact Details</h1>
+            <h1 *ngIf="editing" style="font-weight: bold;text-align: center;" class="mt-5">Edit Contact Details</h1>
+            <form [formGroup]="add" >
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1"><strong>Name:</strong></label>
+                    <br>
+                    <input type="text" class="form-control" formControlName="name" placeholder="Enter Your Name">
+              <br>
+              <span style="color: red;" *ngIf="name && name.invalid && name.touched">This Field Is Require</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword"><strong>Phone Number:</strong></label>
+                    <br>
+                    <input type="text" class="form-control" formControlName="phone"
+                        placeholder="Enter Your Number" (input)="checkPhone($event)">
+                        <br>
+                        <span style="color: red;" *ngIf="phone && phone.invalid && phone.touched">This Field Is Require</span>
+
+                        <span style="color: red;" *ngIf="isPhoneExist">Mobile Number Already Exist</span>
+
+                </div>
+                
+                <br>
+                <button *ngIf="adding " [disabled]=" add.invalid || isPhoneExist " type="submit" class="btn mt-2" (click)="submit()">Submit</button>
+                <button *ngIf="editing" [disabled]="isPhoneExist" type="submit" class="btn mt-2" (click)="updateList()">Update</button>
+            </form>
+       
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
